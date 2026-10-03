@@ -1,0 +1,15 @@
+services:
+  copilot:
+    build: .
+    ports: ["8010:8010"]
+    environment:
+      OPS_DATABASE: /data/ops-copilot.db
+      OPS_ARTIFACT_ROOT: /data/artifacts
+      OPS_MODEL_PROVIDER: ${OPS_MODEL_PROVIDER:-offline}
+      OPS_MODEL_BASE_URL: ${OPS_MODEL_BASE_URL:-}
+      OPS_MODEL_NAME: ${OPS_MODEL_NAME:-}
+      OPS_MODEL_API_KEY: ${OPS_MODEL_API_KEY:-}
+    volumes: ["copilot-data:/data"]
+    restart: unless-stopped
+volumes:
+  copilot-data:
