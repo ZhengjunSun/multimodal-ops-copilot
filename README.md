@@ -21,6 +21,10 @@ flowchart LR
   O --> W[WebSocket event stream]
 ```
 
+## Scope and limitations
+
+This single-process prototype uses SQLite and an in-memory event stream. Audio-file transcription and WebSocket progress are not a realtime STT–LLM–TTS conversation pipeline. Offline benchmarks do not measure real model quality, speech latency, or production throughput. No operational remediation is executed.
+
 ## Engineering highlights
 
 - Multipart ingestion for `.log`, `.txt`, `.json`, `.png`, `.jpg` and `.wav`
@@ -39,7 +43,7 @@ flowchart LR
 python -m venv .venv
 # Windows: .venv\Scripts\activate
 pip install -e ".[dev]"
-uvicorn ops_copilot.api:app --reload
+uvicorn ops_copilot.api:app --reload --port 8010
 ```
 
 Open <http://localhost:8010>. The default offline provider requires no API key.
