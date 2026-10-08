@@ -57,6 +57,16 @@ set OPS_MODEL_API_KEY=local-placeholder
 
 All bundled examples are synthetic. The application produces advisory incident briefs and never changes a real system. Audio and images remain in the configured local artifact directory. Do not upload confidential material to an untrusted model endpoint.
 
+## Verify the claims
+
+- [Architecture and evidence model](docs/architecture.md)
+- [Five-minute multimodal demo](docs/demo.md)
+- [Reproducible benchmark report](docs/benchmark.md)
+
+```bash
+python scripts/benchmark.py --sessions 100
+```
+
 ## License
 
 MIT
